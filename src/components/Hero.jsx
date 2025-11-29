@@ -14,7 +14,7 @@ function Hero() {
 
         <div className="hero  min-h-screen relative" style={{ backgroundImage: `url(${coffeeBanner})` }}>
             {/* Dark Overlay */}
-            <div className='absolute inset-0 bg-black/60 z-0'>     </div>
+            <div className='absolute inset-0 bg-black/60 z-0 backdrop-blur-xs'>     </div>
 
             {/* Content */}
             <div className='hero-content text-center relative z-10' >
