@@ -14,6 +14,7 @@
 
 **Files to create/update:**
 
+=/
 **1. `src/pages/Home.jsx`**
 ```jsx
 // What to write:
