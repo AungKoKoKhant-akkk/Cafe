@@ -162,7 +162,7 @@ const MenuData = [
         price: "$3.00",
         description: "A flaky pastry filled with fruit preserves and topped with sweet glaze.",
         image: DanishPastry,
-        popular: false
+        popular: true
     },
     {
         id: 16,

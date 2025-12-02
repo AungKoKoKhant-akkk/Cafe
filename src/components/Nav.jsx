@@ -1,6 +1,8 @@
 import React, { useState, useEffect, use } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { GiCoffeeCup } from "react-icons/gi";
+import { FaShoppingCart } from "react-icons/fa";
+
 
 function Nav() {
 
@@ -40,6 +42,10 @@ function Nav() {
                     <Link to="/about" className={`btn btn-ghost text-lg ${isTransparent ? 'text-yellow-200 hover:bg-green-500' : ' hover:bg-yellow-200 '}`}>About</Link>
                     <Link to="/menu" className={`btn btn-ghost text-lg ${isTransparent ? 'text-yellow-200 hover:bg-green-500' : ' hover:bg-yellow-200 '}`}>Menu</Link>
                     <Link to="/contact" className={`btn btn-ghost text-lg ${isTransparent ? 'text-yellow-200 hover:bg-green-500' : ' hover:bg-yellow-200 '}`}>Contact</Link>
+                    <Link to="/cart" className={`${isTransparent ? 'text-yellow-200 ' : '  '} indicator mt-2`}>
+                        <span className='indicator-item badge badge-secondary w-4 h-4'>6</span>
+                        <FaShoppingCart className='w-6 h-6' />
+                    </Link>
                 </div>
             </div>
         </nav >
