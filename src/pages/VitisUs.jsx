@@ -1,5 +1,5 @@
 import React from 'react'
-import ContactCard from '../components/ContactCard'
+import ContactCard from '../components/VisitUsComponents/ContactCard'
 import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { TbClockHour3 } from "react-icons/tb";

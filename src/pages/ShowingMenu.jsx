@@ -1,6 +1,8 @@
 import React from 'react'
 import MenuData from '../data/MenuData';
 import { useState } from 'react';
+import ShowingMenuButton from '../components/ShowingMenuComponents/ShowingMenuButton';
+import PopularMenuCard from '../components/ShowingMenuComponents/PopularMenuCard';
 
 function ShowingMenu() {
 
@@ -13,53 +15,14 @@ function ShowingMenu() {
         <div className='  p-4 mt-20 min-h-screen bg-base-300'>
             <h1 className='text-3xl font-bold mb-4 text-center'>Menu</h1>
             {/* Tap Buttons */}
-            <div className='  mb-8'>
-                {/* Tap Buttons Inside Rounded box */}
-                <div className='bg-gray-300 rounded-full max-w-2xl mx-auto  mb-8 p-1  '>
-                    <div className='flex gap-2'>
-                        <button
-                            onClick={() => setCategories('Coffee')}
-                            className={`flex-1 py-3 px-6 rounded-full cursor-pointer font-medium transition-colors ${categories === 'Coffee'
-                                ? 'bg-white shadow'
-                                : 'bg-transparent text-gray-600 hover:text-gray-900'
-                                }`}
-                        >
-                            Coffee
-                        </button>
-                        <button
-                            onClick={() => setCategories('Food')}
-                            className={`flex-1 py-3 px-6 rounded-full font-medium transition-colors cursor-pointer ${categories === 'Food'
-                                ? 'bg-white  shadow'
-                                : 'bg-transparent text-gray-600 hover:text-gray-900'
-                                }`}
-                        >
-                            Food
-                        </button>
-                        <button
-                            onClick={() => setCategories('Pastries')}
-                            className={`flex-1 py-3 px-6 rounded-full cursor-pointer font-medium transition-colors ${categories === 'Pastries'
-                                ? 'bg-white  shadow'
-                                : 'bg-transparent text-gray-600 hover:text-gray-900'
-                                }`}
-                        >
-                            Pastries
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <ShowingMenuButton categories={categories} setCategories={setCategories} />
+
+
 
             {/* Card Grid */}
             <div className='grid grid-cols-2 gap-4 mb-8 max-w-4xl mx-auto'>
                 {filterMenuItem.slice(0, 4).map((item) => (
-                    <div key={item.id} onClick={() => setSelectedItem(item)}
-                        className='border p-4 rounded-lg shadow-2xl bg-base-100 border-none cursor-pointer transition-all hover:scale-105 '>
-                        <h2 className='text-xl font-bold flex justify-between'>
-                            {item.name} <span className='text-sm text-gray-500'>
-                                {item.popular ? <span className='badge bg-gray-200'>Popular</span> : ''}</span>
-                        </h2>
-                        <p className='text-gray-600'>{item.description}</p>
-                        <span className='text-lg font-semibold flex justify-end'>{item.price}</span>
-                    </div>
+                    <PopularMenuCard key={item.id} item={item} onClick={() => setSelectedItem(item)} />
                 ))}
             </div>
 
