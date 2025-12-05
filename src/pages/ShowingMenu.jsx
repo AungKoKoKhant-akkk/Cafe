@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useCallback } from 'react';
 import MenuData from '../data/MenuData';
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import ShowingMenuButton from '../components/ShowingMenuComponents/ShowingMenuButton';
 import PopularMenuCard from '../components/ShowingMenuComponents/PopularMenuCard';
 
@@ -9,7 +9,19 @@ function ShowingMenu() {
     const [categories, setCategories] = useState('Coffee');
     const [selectedItem, setSelectedItem] = useState(null);
 
-    const filterMenuItem = MenuData.filter(item => item.category === categories && item.popular === true);
+
+    const filterMenuItem = useMemo(() => {
+        return MenuData.filter(item => item.category === categories && item.popular === true);
+    }, [categories]);
+
+    useEffect(() => {
+        setSelectedItem(null);
+    }, [categories]);
+
+    const handleItemClick = useCallback((item) => {
+        setSelectedItem(item);
+    }, []);
+
 
     return (
         <div className='  p-4 mt-20 min-h-screen bg-base-300'>
@@ -22,7 +34,7 @@ function ShowingMenu() {
             {/* Card Grid */}
             <div className='grid grid-cols-2 gap-4 mb-8 max-w-4xl mx-auto'>
                 {filterMenuItem.slice(0, 4).map((item) => (
-                    <PopularMenuCard key={item.id} item={item} onClick={() => setSelectedItem(item)} />
+                    <PopularMenuCard key={item.id} item={item} onClick={() => handleItemClick(item)} />
                 ))}
             </div>
 

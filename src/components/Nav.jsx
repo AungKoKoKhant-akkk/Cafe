@@ -1,33 +1,15 @@
-import React, { useState, useEffect, use } from 'react'
+import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { GiCoffeeCup } from "react-icons/gi";
 import { FaShoppingCart } from "react-icons/fa";
+import useScrollPosition from '../CustomHooks/useScrollPosition';
 
 
 function Nav() {
 
-
-    const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
-
     const isHomePage = location.pathname === "/";
-    const handleScroll = () => {
-        if (window.scrollY > 50) {
-            setScrolled(true);
-        } else {
-            setScrolled(false);
-        }
-    }
-
-
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
+    const scrolled = useScrollPosition(50);
     const isTransparent = isHomePage && !scrolled;
 
     return (
