@@ -5,6 +5,7 @@ import Menu from './pages/Menu'
 import Nav from './components/Nav'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
+import Cart from './pages/Cart'
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
       <Footer />
 

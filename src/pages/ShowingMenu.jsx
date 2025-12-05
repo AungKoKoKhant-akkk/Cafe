@@ -3,6 +3,7 @@ import MenuData from '../data/MenuData';
 import { useState, useEffect, useMemo } from 'react';
 import ShowingMenuButton from '../components/ShowingMenuComponents/ShowingMenuButton';
 import PopularMenuCard from '../components/ShowingMenuComponents/PopularMenuCard';
+import { Link } from 'react-router-dom'
 
 function ShowingMenu() {
 
@@ -62,6 +63,10 @@ function ShowingMenu() {
                     </div>
                 </div>
             ) : null}
+
+            <div className='text-center '>
+                <Link to="/menu" className="btn btn-primary mt-4 btn-outline hover:bg-primary">View Full Menu</Link>
+            </div>
 
         </div>
 
