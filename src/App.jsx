@@ -6,11 +6,14 @@ import Nav from './components/Nav'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
 import Cart from './pages/Cart'
-
+import { CartProvider } from './context/CartContext'
 import { Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
+    <CartProvider>
     <div>
 
       <Nav />
@@ -24,8 +27,17 @@ function App() {
       </Routes>
       <Footer />
 
+      <ToastContainer 
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+      />
 
     </div>
+    </CartProvider>
   )
 }
 
