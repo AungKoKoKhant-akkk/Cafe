@@ -25,7 +25,7 @@ function MenuCard({ item }) {
                 <p className="text-sm text-gray-600">{item.description}</p>
                 <div className="card-actions justify-between items-center mt-4">
                     <span className="text-xl font-bold text-primary">{item.price}</span>
-                    <button 
+                    <button
                         className="btn btn-primary btn-sm"
                         onClick={handleAddToCart}  // ← ADD onClick
                     >
